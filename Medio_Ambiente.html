@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0f11147ccdfe4a8c93c205941ab0c99b {
+                    position: absolute;
+                    width: 50.0%;
+                    height:calc(100vh - 50px);
+                    left: 0.0%;
+                    bottom: 0.0%;
+                }
+            </style>
+        
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b63d47bc75554c3292560cb093ccc994 {
+                    position: absolute;
+                    width: 50.0%;
+                    height:calc(100vh - 50px);
+                    right: 0.0%;
+                    bottom: 0.0%;
+                }
+
+                header{
+                    background:rgb(33,37,41);
+                }
+
+                header a{
+                    color:white;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/jieter/Leaflet.Sync/L.Map.Sync.min.js"></script>
+</head>
+<body>    
+    
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Portafolio Adrian Maldonado Llambies - Pau Blanes Climent</a>
+          </div>
+        </nav>
+      </header>
+
+            <div class="folium-map" id="map_0f11147ccdfe4a8c93c205941ab0c99b" ></div>
+        
+    
+            <div class="folium-map" id="map_b63d47bc75554c3292560cb093ccc994" ></div>
+        
+</body>
+<script>    
+    
+            var map_0f11147ccdfe4a8c93c205941ab0c99b = L.map(
+                "map_0f11147ccdfe4a8c93c205941ab0c99b",
+                {
+                    center: [39.0, -0.3],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fa49c4189b80459db9c133193b24357b = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_0f11147ccdfe4a8c93c205941ab0c99b);
+        
+    
+            var tile_layer_d16b6b6796404c888e7a1047e00b7f91 = L.tileLayer(
+                "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/maps/b0716957d014f29f0b46bbc89317b313-78bbe49aaa0d1705276aae46233461c1/tiles/{z}/{x}/{y}",
+                {"attribution": "Tecnolog\u00edas de la Informaci\u00f3n Geogr\u00e1fica", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_0f11147ccdfe4a8c93c205941ab0c99b);
+        
+    
+            var layer_control_6dd4c40f447a43ebacb9baf3a46be22a = {
+                base_layers : {
+                    "stamenterrain" : tile_layer_fa49c4189b80459db9c133193b24357b,
+                },
+                overlays :  {
+                    "dNBR" : tile_layer_d16b6b6796404c888e7a1047e00b7f91,
+                },
+            };
+            L.control.layers(
+                layer_control_6dd4c40f447a43ebacb9baf3a46be22a.base_layers,
+                layer_control_6dd4c40f447a43ebacb9baf3a46be22a.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_0f11147ccdfe4a8c93c205941ab0c99b);
+        
+    
+            var map_b63d47bc75554c3292560cb093ccc994 = L.map(
+                "map_b63d47bc75554c3292560cb093ccc994",
+                {
+                    center: [39.0, -0.3],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2f19713e4d434f3e82cc224effca3fd4 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b63d47bc75554c3292560cb093ccc994);
+        
+    
+            var tile_layer_6c3f0f90e4c8414ea9004418e3383b9e = L.tileLayer(
+                "https://earthengine.googleapis.com/v1alpha/projects/earthengine-legacy/maps/08042437e2c24937f62d33d940cb0a16-9d2aae7eccd4869912e2d66d7bc81513/tiles/{z}/{x}/{y}",
+                {"attribution": "Tecnolog\u00edas de la Informaci\u00f3n Geogr\u00e1fica", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_b63d47bc75554c3292560cb093ccc994);
+        
+    
+            map_0f11147ccdfe4a8c93c205941ab0c99b.sync(map_b63d47bc75554c3292560cb093ccc994);
+            map_b63d47bc75554c3292560cb093ccc994.sync(map_0f11147ccdfe4a8c93c205941ab0c99b);
+        
+    
+            var layer_control_dfe8bd0d2c364dbaa19e656efe496710 = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_2f19713e4d434f3e82cc224effca3fd4,
+                },
+                overlays :  {
+                    "SLD intervalos" : tile_layer_6c3f0f90e4c8414ea9004418e3383b9e,
+                },
+            };
+            L.control.layers(
+                layer_control_dfe8bd0d2c364dbaa19e656efe496710.base_layers,
+                layer_control_dfe8bd0d2c364dbaa19e656efe496710.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_b63d47bc75554c3292560cb093ccc994);
+        
+</script>
